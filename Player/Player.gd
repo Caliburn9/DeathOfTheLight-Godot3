@@ -22,7 +22,8 @@ var near_pedestal = false
 
 signal dead
 signal win
-signal interacted_with_orb(value)
+signal orb_interaction
+#signal interacted_with_orb(value)
 
 onready var itemDetector = $ItemDetector
 onready var itemSlot = $ItemSlot
@@ -97,14 +98,16 @@ func move_state(delta):
 				pick_up_item()
 				print("Picking up")
 				if item.get_item_type() == "Orb":
-					emit_signal("interacted_with_orb", 3.75)
-					item.change_is_picked_up()
+					emit_signal("orb_interaction")
+#					emit_signal("interacted_with_orb", 3.75)
+#					item.change_is_picked_up()
 			else:
 				drop_item()
 				print("Dropping")
 				if item.get_item_type() == "Orb":
-					emit_signal("interacted_with_orb", 2.25)
-					item.change_is_picked_up()
+					emit_signal("orb_interaction")
+#					emit_signal("interacted_with_orb", 2.25)
+#					item.change_is_picked_up()
 	
 	if Input.is_action_just_pressed("use"):
 		if holding_item:

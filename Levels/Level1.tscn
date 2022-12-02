@@ -1,8 +1,7 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/LightOrb.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Items/Soul.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Items/Sword.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/LightBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=6]
@@ -497,39 +496,6 @@ remote_path = NodePath("../../../Camera2D")
 position = Vector2( 240, 144 )
 collision_mask = 3
 
-[node name="Soul" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 330, 179 )
-
-[node name="Soul2" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 361, 167 )
-
-[node name="Soul3" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 345, 183 )
-
-[node name="Soul10" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 770, 272 )
-
-[node name="Soul7" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 754, 288 )
-
-[node name="Soul4" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 344, 168 )
-
-[node name="Soul5" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 953, 531 )
-
-[node name="Soul13" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 957, 539 )
-
-[node name="Soul6" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 944, 544 )
-
-[node name="Soul8" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 952, 560 )
-
-[node name="Soul9" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 688, 672 )
-
 [node name="BrokenSword" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 355, 271 )
 
@@ -588,9 +554,8 @@ margin_bottom = 16.0
 
 [node name="GameStateController" parent="." instance=ExtResource( 8 )]
 [connection signal="dead" from="YSort/Player" to="GameStateController" method="_on_Player_dead"]
-[connection signal="interacted_with_orb" from="YSort/Player" to="CanvasLayer/LightBar" method="_on_Player_interacted_with_orb"]
+[connection signal="orb_interaction" from="YSort/Player" to="CanvasLayer/LightBar" method="_on_Player_orb_interaction"]
 [connection signal="win" from="YSort/Player" to="GameStateController" method="_on_Player_win"]
-[connection signal="increase_light_level" from="YSort/LightOrb" to="CanvasLayer/LightBar" method="_on_LightOrb_increase_light_level"]
 [connection signal="no_light" from="CanvasLayer/LightBar" to="GameStateController" method="_on_LightBar_no_light"]
 
 [editable path="Camera2D"]
