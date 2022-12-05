@@ -5,7 +5,7 @@ onready var timer = $Timer
 
 signal no_light
 
-export(float) var light_decay_time = 1
+export(float) var light_timer = 1
 export var light_decay_value = 2
 export var light_increment_value = 2
 export var max_light_level = 20
@@ -17,7 +17,7 @@ func _ready():
 	lightBarTexture.max_value = max_light_level
 	light_value = lightBarTexture.max_value
 	lightBarTexture.value = light_value
-	timer.set_wait_time(light_decay_time)
+	timer.set_wait_time(light_timer)
 
 func _physics_process(delta):
 	if light_value <= 0:
@@ -43,3 +43,7 @@ func _on_Timer_timeout():
 
 func _on_Player_orb_interaction():
 	player_interacted_with_orb = !player_interacted_with_orb
+	if !player_interacted_with_orb:
+		light_timer = .5
+	else:
+		light_timer = 1
