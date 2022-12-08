@@ -529,14 +529,20 @@ position = Vector2( 1070, 661 )
 [node name="Enemy8" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 847, 645 )
 
+[node name="Enemy13" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 780, 670 )
+
 [node name="Enemy7" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 676, 447 )
 
 [node name="Enemy4" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 1170, 607 )
+position = Vector2( 1170, 623 )
 
 [node name="Enemy5" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 701, 319 )
+position = Vector2( 692, 364 )
+
+[node name="Enemy12" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 682, 311 )
 
 [node name="Enemy9" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 637, 350 )
