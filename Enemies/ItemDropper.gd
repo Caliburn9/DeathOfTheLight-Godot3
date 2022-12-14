@@ -23,7 +23,7 @@ func drop_item():
 #		soul_instance.global_position = global_position + drop_vector
 #		print("Dropped Soul")
 	
-	if weapon_drop_chance <= 50:
+	if weapon_drop_chance <= 65:
 		var sword_instance = sword.instance()
 		#get_tree().get_root().call_deferred("add_child", sword_instance)
 		get_parent().get_parent().call_deferred("add_child", sword_instance)

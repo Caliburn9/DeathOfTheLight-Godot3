@@ -512,10 +512,6 @@ position = Vector2( 601, 279 )
 position = Vector2( 755, 293 )
 collision_mask = 3
 
-[node name="Sword5" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 321, 151 )
-collision_mask = 3
-
 [node name="Sword4" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 906, 690 )
 collision_mask = 3
