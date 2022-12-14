@@ -1,11 +1,17 @@
 extends "res://Items/Item.gd"
 
-export var durability = 1
+export var max_durability = 1
+var durability = max_durability
+
+signal durability_changed(value)
+signal max_durability_changed(value)
 
 onready var hitbox = $Hitbox
 onready var hitboxColShape = $Hitbox/CollisionShape2D
 
 func _ready():
+	self.durability = max_durability
+	emit_signal("durability_changed", durability)	
 	disable_hitbox()
 
 func _physics_process(delta):
@@ -13,6 +19,7 @@ func _physics_process(delta):
 
 func reduce_durability():
 	durability -= 1
+	emit_signal("durability_changed", durability)
 
 func destroy_weapon():
 	if durability <= 0:

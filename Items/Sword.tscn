@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/SwordTest.png" type="Texture" id=2]
 [ext_resource path="res://Items/Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Hitboxes and Hurtboxes/WeaponHitbox.gd" type="Script" id=5]
+[ext_resource path="res://Items/DurabilityUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 2 )
@@ -15,7 +16,7 @@ extents = Vector2( 7, 3 )
 [node name="Sword" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 item_type = "Weapon"
-durability = 2
+max_durability = 2
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 5, 0 )
@@ -32,5 +33,11 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 6, 0 )
 shape = SubResource( 2 )
+
+[node name="DurabilityIcon" parent="." index="3" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 2.0
+margin_bottom = 2.0
 
 [editable path="Hitbox"]
