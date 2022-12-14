@@ -545,7 +545,7 @@ position = Vector2( 1170, 623 )
 position = Vector2( 692, 364 )
 
 [node name="Enemy12" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 682, 311 )
+position = Vector2( 692, 321 )
 
 [node name="Enemy9" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 637, 350 )

@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 var durability = 1 setget set_durability
 var max_durability = 1 setget set_max_durability

@@ -37,6 +37,7 @@ func _ready():
 	attackTimer.set_wait_time(attack_delay)
 	attackTimer.connect("timeout", self, "on_AttackTimer_timeout")
 	add_child(attackTimer)
+	randomize()
 
 func _physics_process(delta):
 	match state:
