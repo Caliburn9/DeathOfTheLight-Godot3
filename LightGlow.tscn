@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://LightTexture.tres" type="Texture" id=1]
+[ext_resource path="res://LightGlow.gd" type="Script" id=2]
+[ext_resource path="res://Math.tscn" type="PackedScene" id=3]
+
+[node name="LightGlow" type="Light2D"]
+texture = ExtResource( 1 )
+texture_scale = 2.0
+mode = 2
+script = ExtResource( 2 )
+start_scale = 2.0
+
+[node name="Math" parent="." instance=ExtResource( 3 )]

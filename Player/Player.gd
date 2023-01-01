@@ -30,6 +30,8 @@ onready var itemSlot = $ItemSlot
 onready var weaponAttackPos = $WeaponAttackPos
 onready var hurtbox = $Hurtbox
 onready var stats = $Stats
+onready var lightGlow = $Light
+onready var math = $Math
 
 func _ready():
 	attackTimer = Timer.new()
@@ -204,3 +206,15 @@ func _on_Hurtbox_area_entered(area):
 func _on_Stats_no_health():
 	queue_free()
 	emit_signal("dead")
+
+
+#TO DO:
+#THE MATH WORKS BUT THE SCALE IS TOO HIGH
+#GLOW EFFECT IS LARGE DUE TO 
+#HOW LARGE THE BAR VALUE IS.
+func _on_LightBar_light_value_changed(change_amt_percent):
+	var glow_scale_percent = math.value_to_percentage(float(lightGlow.get_texture_scale()), float(lightGlow.return_max_texture_scale()))
+	glow_scale_percent = change_amt_percent
+	var glow_scale_value = math.percentage_to_value(float(glow_scale_percent), float(lightGlow.return_max_texture_scale()))
+	lightGlow.change_texture_scale(glow_scale_value)
+	

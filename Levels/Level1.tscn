@@ -562,18 +562,22 @@ position = Vector2( 1308, 626 )
 [node name="Pedestal" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1523, 633 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="LightBar" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="LightBar" parent="UI" instance=ExtResource( 5 )]
 margin_left = 96.0
 margin_top = 16.0
 margin_right = 96.0
 margin_bottom = 16.0
 
 [node name="GameStateController" parent="." instance=ExtResource( 8 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 0.933333 )
 [connection signal="dead" from="YSort/Player" to="GameStateController" method="_on_Player_dead"]
-[connection signal="orb_interaction" from="YSort/Player" to="CanvasLayer/LightBar" method="_on_Player_orb_interaction"]
+[connection signal="orb_interaction" from="YSort/Player" to="UI/LightBar" method="_on_Player_orb_interaction"]
 [connection signal="win" from="YSort/Player" to="GameStateController" method="_on_Player_win"]
-[connection signal="no_light" from="CanvasLayer/LightBar" to="GameStateController" method="_on_LightBar_no_light"]
+[connection signal="light_value_changed" from="UI/LightBar" to="YSort/Player" method="_on_LightBar_light_value_changed"]
+[connection signal="no_light" from="UI/LightBar" to="GameStateController" method="_on_LightBar_no_light"]
 
 [editable path="Camera2D"]
