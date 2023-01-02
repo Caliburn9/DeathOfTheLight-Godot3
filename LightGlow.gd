@@ -5,10 +5,11 @@ onready var math = $Math
 export(float) var start_scale = 0
 
 var min_texture_scale = 0.5
-var max_texture_scale = 2
+var max_texture_scale = 0
 var scale_rate = 0.2
 
 func _ready():
+	max_texture_scale = start_scale
 	texture_scale = start_scale
 
 func return_min_texture_scale():

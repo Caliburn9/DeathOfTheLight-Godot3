@@ -51,6 +51,7 @@ collision_layer = 4
 shape = SubResource( 3 )
 
 [node name="Light" parent="." instance=ExtResource( 6 )]
+start_scale = 1.5
 
 [node name="Math" parent="." instance=ExtResource( 7 )]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]

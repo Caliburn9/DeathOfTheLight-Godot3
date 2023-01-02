@@ -208,9 +208,21 @@ func _on_Stats_no_health():
 	emit_signal("dead")
 
 func _on_LightBar_light_value_changed(change_amt_percent):
+	var is_reducing = false
 	var glow_scale_percent = math.value_to_percentage(float(lightGlow.get_texture_scale()), float(lightGlow.return_max_texture_scale()))
+	
+	if glow_scale_percent > change_amt_percent:
+		is_reducing = true
+	else:
+		is_reducing = false
+	
 	glow_scale_percent = change_amt_percent
 	var glow_scale_value = math.percentage_to_value(float(glow_scale_percent), float(lightGlow.return_max_texture_scale()))
-	var reduction_amt = glow_scale_value * 0.75
-	glow_scale_value -= reduction_amt
+	
+	var additional_amt = glow_scale_value * 0.75
+	if is_reducing:
+		glow_scale_value -= additional_amt
+	else:
+		glow_scale_value += additional_amt
+	
 	lightGlow.change_texture_scale(glow_scale_value)
