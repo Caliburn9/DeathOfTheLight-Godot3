@@ -8,6 +8,8 @@ var drop_vector = Vector2.ZERO
 ##Items list
 #onready var soul = preload("res://Items/Soul.tscn")
 onready var sword = preload("res://Items/Sword.tscn")
+onready var axe = preload("res://Items/Axe.tscn")
+onready var spear = preload("res://Items/Spear.tscn")
 
 func drop_item():
 	drop_randomizer.randomize()
