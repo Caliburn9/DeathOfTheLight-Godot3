@@ -25,9 +25,21 @@ func drop_item():
 #		soul_instance.global_position = global_position + drop_vector
 #		print("Dropped Soul")
 	
-	if weapon_drop_chance <= 65:
+	if weapon_drop_chance <= 100 and weapon_drop_chance > 50:
 		var sword_instance = sword.instance()
 		#get_tree().get_root().call_deferred("add_child", sword_instance)
 		get_parent().get_parent().call_deferred("add_child", sword_instance)
 		sword_instance.global_position = global_position
 		print("Dropped Sword")
+	elif weapon_drop_chance <= 50 and weapon_drop_chance > 15:
+		var axe_instance = axe.instance()
+		#get_tree().get_root().call_deferred("add_child", sword_instance)
+		get_parent().get_parent().call_deferred("add_child", axe_instance)
+		axe_instance.global_position = global_position
+		print("Dropped Axe")
+	elif weapon_drop_chance <= 15 and weapon_drop_chance > 0:
+		var spear_instance = spear.instance()
+		#get_tree().get_root().call_deferred("add_child", sword_instance)
+		get_parent().get_parent().call_deferred("add_child", spear_instance)
+		spear_instance.global_position = global_position
+		print("Dropped Spear")
