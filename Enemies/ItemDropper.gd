@@ -11,6 +11,9 @@ onready var sword = preload("res://Items/Sword.tscn")
 onready var axe = preload("res://Items/Axe.tscn")
 onready var spear = preload("res://Items/Spear.tscn")
 
+#Item drop chance based on what this enemy is
+#What weapons can this enemy drop?
+
 func drop_item():
 	drop_randomizer.randomize()
 #	var drop_amount = drop_randomizer.randi_range(3, 7)
