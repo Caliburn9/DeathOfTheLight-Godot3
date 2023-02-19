@@ -129,6 +129,28 @@ func move_state(delta):
 						state = ATTACK
 						#Pass necessary attacking logic
 						attack_vector = input_vector
+				
+				"Attractor":
+					#Attract orb
+					#"Drop" the held item
+					pass
+				
+				"LightStasis":
+					#Stop the light bar for a few sec
+					#"Drop" the held item
+					pass
+				
+				"EnemyStasis":
+					#Stop the enemy in place that is
+					#               within a radius
+					#"Drop" the held item
+					pass
+				
+				"Chest":
+					#Drop a random weapon
+					#"Drop" the held item
+					item.drop_weapon()
+					drop_item()
 
 func attack_state(atk_vec):
 	#stop moving and set can attack to false
@@ -199,9 +221,17 @@ func on_AttackTimer_timeout():
 
 func _on_Hurtbox_area_entered(area):
 	#take damage something like below
-	stats.health -= area.damage
-	print("Player took damage")
-	hurtbox.start_invul(.6)
+	if area.canDamage == true:
+		stats.health -= area.damage
+		print("Player took damage")
+		hurtbox.start_invul(.6)
+	else:
+		#make the player drop the held item
+		if holding_item == true:
+			drop_item()
+			print("Dropping")
+			if item.get_item_type() == "Orb":
+				emit_signal("orb_interaction")
 
 func _on_Stats_no_health():
 	queue_free()

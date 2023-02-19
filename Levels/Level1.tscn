@@ -3,12 +3,12 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/LightOrb.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/WallTileMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Items/Sword.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/LightBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GameStateController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/Background.png" type="Texture" id=9]
+[ext_resource path="res://Items/WeaponChest.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World/Pedestal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Items/BrokenSword.tscn" type="PackedScene" id=12]
 
@@ -52,21 +52,6 @@ position = Vector2( 721, 611 )
 [node name="BrokenSword4" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1200, 590 )
 
-[node name="BrokenSword3" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 601, 279 )
-
-[node name="Sword2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 755, 293 )
-collision_mask = 3
-
-[node name="Sword4" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 906, 690 )
-collision_mask = 3
-
-[node name="Sword3" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 1120, 640 )
-collision_mask = 3
-
 [node name="Enemy" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 650, 291 )
 
@@ -109,6 +94,15 @@ position = Vector2( 1308, 626 )
 [node name="Pedestal" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1523, 633 )
 
+[node name="WeaponChest" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 747, 289 )
+
+[node name="WeaponChest3" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 602, 284 )
+
+[node name="WeaponChest2" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 920, 685 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="LightBar" parent="UI" instance=ExtResource( 5 )]
@@ -120,6 +114,7 @@ margin_bottom = 16.0
 [node name="GameStateController" parent="." instance=ExtResource( 8 )]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 0.933333 )
 [connection signal="dead" from="YSort/Player" to="GameStateController" method="_on_Player_dead"]
 [connection signal="orb_interaction" from="YSort/Player" to="UI/LightBar" method="_on_Player_orb_interaction"]
