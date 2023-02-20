@@ -48,6 +48,9 @@ func seek_player():
 	if playerDetector.can_see_player():
 		state = CHASE
 
+func set_max_speed(val):
+	MAX_SPEED = val
+
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 150

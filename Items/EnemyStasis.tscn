@@ -1,16 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Items/EnemyStasisTest.png" type="Texture" id=1]
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/Circle.png" type="Texture" id=3]
+[ext_resource path="res://Items/EnemyStasis.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 89.2693
+
 [node name="EnemyStasis" instance=ExtResource( 2 )]
+script = ExtResource( 4 )
 item_type = "EnemyStasis"
+time = 0.1
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
+
+[node name="StasisArea" type="Area2D" parent="." index="2"]
+visible = false
+collision_layer = 0
+collision_mask = 64
+
+[node name="Sprite" type="Sprite" parent="StasisArea" index="0"]
+position = Vector2( 7.98702e-06, -0.500003 )
+scale = Vector2( 17, 17 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StasisArea" index="1"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="." index="3"]
+[connection signal="body_entered" from="StasisArea" to="." method="_on_StasisArea_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -144,7 +144,8 @@ func move_state(delta):
 					#Stop the enemy in place that is
 					#               within a radius
 					#"Drop" the held item
-					pass
+					item.stop_enemies()
+					drop_item()
 				
 				"Chest":
 					#Drop a random weapon
