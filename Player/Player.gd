@@ -130,16 +130,6 @@ func move_state(delta):
 						#Pass necessary attacking logic
 						attack_vector = input_vector
 				
-				"Attractor":
-					#Attract orb
-					#"Drop" the held item
-					pass
-				
-				"LightStasis":
-					#Stop the light bar for a few sec
-					#"Drop" the held item
-					pass
-				
 				"EnemyStasis":
 					#Stop the enemy in place that is
 					#               within a radius
@@ -152,6 +142,16 @@ func move_state(delta):
 					#"Drop" the held item
 					item.drop_weapon()
 					drop_item()
+				
+#				"Attractor":
+#					#Attract orb
+#					#"Drop" the held item
+#					pass
+#
+#				"LightStasis":
+#					#Stop the light bar for a few sec
+#					#"Drop" the held item
+#					pass
 
 func attack_state(atk_vec):
 	#stop moving and set can attack to false
