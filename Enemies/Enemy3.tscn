@@ -64,6 +64,7 @@ canDamage = false
 shape = SubResource( 5 )
 
 [node name="ItemDropper" parent="." instance=ExtResource( 7 )]
+enemy_type = "Enemy3"
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

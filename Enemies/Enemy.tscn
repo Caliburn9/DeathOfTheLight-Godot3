@@ -62,6 +62,7 @@ collision_layer = 8
 shape = SubResource( 5 )
 
 [node name="ItemDropper" parent="." instance=ExtResource( 8 )]
+enemy_type = "Enemy1"
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
