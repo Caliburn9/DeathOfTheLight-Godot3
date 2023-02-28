@@ -32,6 +32,7 @@ MAX_SPEED = 15
 FRICTION = 500
 
 [node name="Stats" parent="." instance=ExtResource( 2 )]
+max_health = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
