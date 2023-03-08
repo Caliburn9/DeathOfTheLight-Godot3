@@ -32,6 +32,7 @@ onready var hurtbox = $Hurtbox
 onready var stats = $Stats
 onready var lightGlow = $Light
 onready var math = $Math
+onready var pointer = $OrbPointer
 
 func _ready():
 	attackTimer = Timer.new()
@@ -101,6 +102,8 @@ func move_state(delta):
 				pick_up_item()
 				print("Picking up")
 				if item.get_item_type() == "Orb":
+					pointer.set_target(null)
+					pointer.visible = false
 					emit_signal("orb_interaction")
 #					emit_signal("interacted_with_orb", 3.75)
 #					item.change_is_picked_up()
@@ -108,6 +111,8 @@ func move_state(delta):
 				drop_item()
 				print("Dropping")
 				if item.get_item_type() == "Orb":
+					pointer.set_target(item)
+					pointer.visible = true
 					emit_signal("orb_interaction")
 #					emit_signal("interacted_with_orb", 2.25)
 #					item.change_is_picked_up()

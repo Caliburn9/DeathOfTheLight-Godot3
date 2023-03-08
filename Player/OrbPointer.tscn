@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/PointerTest.png" type="Texture" id=1]
+[ext_resource path="res://Player/OrbPointer.gd" type="Script" id=2]
+
+[node name="OrbPointer" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -16 )

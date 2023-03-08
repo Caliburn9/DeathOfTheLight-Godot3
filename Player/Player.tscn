@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/PlayerTest.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://LightGlow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Math.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/OrbPointer.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 4 )
@@ -54,6 +55,9 @@ shape = SubResource( 3 )
 start_scale = 1.5
 
 [node name="Math" parent="." instance=ExtResource( 7 )]
+
+[node name="OrbPointer" parent="." instance=ExtResource( 8 )]
+visible = false
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
