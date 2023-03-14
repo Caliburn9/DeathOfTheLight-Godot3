@@ -173,6 +173,7 @@ margin_right = 96.0
 margin_bottom = 16.0
 
 [node name="GameStateController" parent="." instance=ExtResource( 5 )]
+NEXT_LEVEL = "res://Levels/Level3.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )

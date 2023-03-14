@@ -24,7 +24,9 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 8 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"Enemy",
+]]
 collision_layer = 64
 script = ExtResource( 3 )
 

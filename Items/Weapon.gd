@@ -11,7 +11,7 @@ onready var hitboxColShape = $Hitbox/CollisionShape2D
 
 func _ready():
 	self.durability = max_durability
-	emit_signal("durability_changed", durability)	
+	emit_signal("durability_changed", durability)
 	disable_hitbox()
 
 func _physics_process(delta):
