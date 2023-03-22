@@ -20,10 +20,10 @@ expand = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 14.0
-margin_top = 76.0
-margin_right = 208.0
-margin_bottom = 172.0
+margin_left = 13.0
+margin_top = 42.0
+margin_right = 207.0
+margin_bottom = 138.0
 text = "The Light is sustained
 
 Press \"Enter\" to proceed
@@ -35,10 +35,10 @@ __meta__ = {
 
 [node name="EnemyResults" type="RichTextLabel" parent="."]
 visible = false
-margin_left = 14.0
-margin_top = 136.0
-margin_right = 190.0
-margin_bottom = 200.0
+margin_left = 13.0
+margin_top = 138.0
+margin_right = 189.0
+margin_bottom = 202.0
 text = "You have slain N/A out of N/A enemies
 "
 __meta__ = {

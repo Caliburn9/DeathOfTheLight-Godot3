@@ -6,6 +6,7 @@ onready var win = $Win
 onready var result = $Result
 
 export(String, FILE) var NEXT_LEVEL: String = ""
+export var cur_level = "level"
 
 var lost = false
 var won = false
@@ -14,6 +15,7 @@ var total_enemies = 0
 var remaining_enemies = 0 
 
 func _ready():
+	get_tree().paused = false
 	total_enemies = get_tree().get_nodes_in_group("Enemy").size()
 	
 	set_visible(false, pause)
@@ -31,7 +33,9 @@ func _input(event):
 			#or to a final game win screen
 			if NEXT_LEVEL != "":
 				get_tree().change_scene(NEXT_LEVEL)
-				get_tree().paused = false
+				GlobalData.current_data[cur_level] = true
+				GlobalData.sava_data(GlobalData.filePath)
+				print(GlobalData.current_data)
 		else:
 			#pause/unpause the game
 			set_visible(!get_tree().paused, pause)

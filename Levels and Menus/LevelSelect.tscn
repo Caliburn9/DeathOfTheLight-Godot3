@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BlackTexture.png" type="Texture" id=1]
+[ext_resource path="res://Levels and Menus/LevelSelect.gd" type="Script" id=2]
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="LevelSelect" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="LevelSelect"]
+modulate = Color( 1, 1, 1, 0.411765 )
+margin_right = 322.0
+margin_bottom = 184.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect"]
+margin_left = 72.0
+margin_top = 74.0
+margin_right = 254.0
+margin_bottom = 114.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_right = 58.0
+margin_bottom = 40.0
+focus_neighbour_left = NodePath("../Button3")
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_left = 62.0
+margin_right = 120.0
+margin_bottom = 40.0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_left = 124.0
+margin_right = 182.0
+margin_bottom = 40.0
+focus_neighbour_right = NodePath("../Button")
+text = "Level 3"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelSelect"]
+margin_left = 105.0
+margin_top = 49.0
+margin_right = 210.0
+margin_bottom = 67.0
+text = "	Level Select"
+
+[node name="Reset" type="Button" parent="LevelSelect"]
+margin_left = 133.0
+margin_top = 130.0
+margin_right = 193.0
+margin_bottom = 150.0
+text = " Reset "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="LevelSelect/Reset" to="." method="_on_Reset_pressed"]

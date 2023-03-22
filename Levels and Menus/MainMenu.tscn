@@ -26,35 +26,42 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 141.0
-margin_top = 74.0
-margin_right = 182.0
-margin_bottom = 118.0
+margin_left = 13.0
+margin_top = 57.0
+margin_right = 102.0
+margin_bottom = 125.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Start" type="Button" parent="MainMenu/VBoxContainer"]
-margin_right = 41.0
+margin_right = 89.0
 margin_bottom = 20.0
 focus_neighbour_top = NodePath("../Quit")
 text = "Start"
 
-[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
+[node name="Level Select" type="Button" parent="MainMenu/VBoxContainer"]
 margin_top = 24.0
-margin_right = 41.0
+margin_right = 89.0
 margin_bottom = 44.0
-focus_neighbour_bottom = NodePath(".")
+text = "Level Select"
+
+[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
+margin_top = 48.0
+margin_right = 89.0
+margin_bottom = 68.0
+focus_neighbour_bottom = NodePath("../Start")
 text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
-margin_left = 105.0
-margin_top = 91.0
-margin_right = 224.0
-margin_bottom = 110.0
+margin_left = 13.0
+margin_top = 69.0
+margin_right = 132.0
+margin_bottom = 88.0
 text = "Death of the Light"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="MainMenu/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Level Select" to="." method="_on_Level_Select_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

@@ -384,9 +384,10 @@ margin_bottom = 16.0
 
 [node name="GameStateController" parent="." instance=ExtResource( 5 )]
 NEXT_LEVEL = "res://Levels and Menus/FinalWinScreen.tscn"
+cur_level = "level3"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.933333 )
 [connection signal="dead" from="YSort/Player" to="GameStateController" method="_on_Player_dead"]
 [connection signal="orb_interaction" from="YSort/Player" to="UI/LightBar" method="_on_Player_orb_interaction"]
 [connection signal="win" from="YSort/Player" to="GameStateController" method="_on_Player_win"]
