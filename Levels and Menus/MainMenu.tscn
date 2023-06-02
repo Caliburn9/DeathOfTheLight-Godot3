@@ -84,10 +84,10 @@ __meta__ = {
 }
 
 [node name="Version" type="RichTextLabel" parent="MainMenu"]
-margin_left = 288.0
-margin_top = 164.0
-margin_right = 323.0
-margin_bottom = 184.0
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 72.0
+margin_bottom = 27.0
 theme = ExtResource( 4 )
 custom_fonts/normal_font = SubResource( 4 )
 text = "Beta"
