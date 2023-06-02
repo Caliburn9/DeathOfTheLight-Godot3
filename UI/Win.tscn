@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://BlackTexture.png" type="Texture" id=1]
+[ext_resource path="res://Menu Art/WinScreen.png" type="Texture" id=1]
 [ext_resource path="res://UI/Win.gd" type="Script" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://Fonts/Adventurer.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
 
 [node name="Win" type="Control"]
 rect_pivot_offset = Vector2( -96, 32 )
@@ -12,7 +20,6 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.411765 )
 margin_right = 320.0
 margin_bottom = 180.0
 texture = ExtResource( 1 )
@@ -21,9 +28,11 @@ expand = true
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
 margin_left = 13.0
-margin_top = 42.0
+margin_top = 20.0
 margin_right = 207.0
-margin_bottom = 138.0
+margin_bottom = 133.0
+theme = ExtResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "The Light is sustained
 
 Press \"Enter\" to proceed
@@ -38,7 +47,9 @@ visible = false
 margin_left = 13.0
 margin_top = 138.0
 margin_right = 189.0
-margin_bottom = 202.0
+margin_bottom = 203.0
+theme = ExtResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "You have slain N/A out of N/A enemies
 "
 __meta__ = {

@@ -11,12 +11,12 @@ var default_data = {
 var current_data = {}
 
 func reset_data():
-	print("Data Reset")
+	#print("Data Reset")
 	current_data.clear()
 	current_data = default_data.duplicate(true)
 
 func sava_data(path : String):
-	print("Data Saved")
+	#print("Data Saved")
 	var file = File.new()
 	file.open(path, File.WRITE)
 	
@@ -25,7 +25,7 @@ func sava_data(path : String):
 	file.close()
 
 func load_data(path : String):
-	print("Data Loaded")
+	#print("Data Loaded")
 	var file = File.new()
 	file.open(path, File.READ)
 	

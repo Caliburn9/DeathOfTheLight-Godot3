@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://BlackTexture.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Adventurer.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu Art/FinalWinScreen.png" type="Texture" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
 
 [node name="FinalWin" type="Control"]
 rect_pivot_offset = Vector2( -96, 32 )
@@ -9,7 +14,6 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.411765 )
 margin_right = 320.0
 margin_bottom = 180.0
 texture = ExtResource( 2 )
@@ -21,10 +25,12 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 9.0
-margin_top = 80.0
-margin_right = 185.0
-margin_bottom = 179.0
+margin_left = 7.0
+margin_top = 71.0
+margin_right = 228.0
+margin_bottom = 177.0
+theme = ExtResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Thank you for playing!
 		
 Press \"Enter\" to replay

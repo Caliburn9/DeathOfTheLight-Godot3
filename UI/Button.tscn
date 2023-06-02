@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Adventurer.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/ButtonUI-Hover.png" type="Texture" id=2]
+[ext_resource path="res://UI/ButtonUI-Normal.png" type="Texture" id=3]
+[ext_resource path="res://UI/ButtonUI-Pressed.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="Button" type="TextureButton"]
+margin_right = 78.0
+margin_bottom = 42.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 67.0
+margin_bottom = 31.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.34902, 0.247059, 0.627451, 1 )
+custom_colors/font_color_shadow = Color( 0.717647, 0.705882, 1, 1 )
+text = "Default"
+__meta__ = {
+"_edit_use_anchors_": false
+}

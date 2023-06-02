@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WeaponBreak2.wav-3746f20f55c1a8ccb6c745df9354afde.sample"
+
+[deps]
+
+source_file="res://Audio/Files/WeaponBreak2.wav"
+dest_files=[ "res://.import/WeaponBreak2.wav-3746f20f55c1a8ccb6c745df9354afde.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/EnemyWalk.wav-b149899cd624e87d1cd2d28f9ef8b0f3.sample"
+
+[deps]
+
+source_file="res://Audio/Files/EnemyWalk.wav"
+dest_files=[ "res://.import/EnemyWalk.wav-b149899cd624e87d1cd2d28f9ef8b0f3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

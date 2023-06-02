@@ -24,6 +24,11 @@ func _ready():
 func _physics_process(delta):
 	if light_value <= 0:
 		emit_signal("no_light")
+	
+	if light_value <= 8:
+		SoundManager.play_low_light_sound()
+	else:
+		SoundManager.stop_low_light_sound()
 
 func _on_Timer_timeout():
 	var light_value_percentage = 0
@@ -40,6 +45,9 @@ func _on_Timer_timeout():
 			lightBarTexture.value = light_value
 			light_value_percentage = math.value_to_percentage(float(light_value), float(max_light_level))
 			emit_signal("light_value_changed", light_value_percentage)
+
+func get_light_value():
+	return light_value
 
 func _on_Player_orb_interaction():
 	player_interacted_with_orb = !player_interacted_with_orb

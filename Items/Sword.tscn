@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Items/SwordTest.png" type="Texture" id=2]
+[ext_resource path="res://Items/Sword.png" type="Texture" id=2]
 [ext_resource path="res://Items/Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Hitboxes and Hurtboxes/WeaponHitbox.gd" type="Script" id=5]

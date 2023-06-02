@@ -13,7 +13,7 @@ func attract_to_orb():
 		position += distance / 10
 		if global_position.distance_to(target.global_position) <= ABSORB_RANGE:
 			queue_free()
-			print("Soul Absorbed")
+			#print("Soul Absorbed")
 
 func _physics_process(delta):
 	attract_to_orb()

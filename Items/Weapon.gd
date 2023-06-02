@@ -24,6 +24,7 @@ func reduce_durability():
 func destroy_weapon():
 	if durability <= 0:
 		queue_free()
+		SoundManager.play_weapon_break_sound()
 
 func return_durability():
 	return durability

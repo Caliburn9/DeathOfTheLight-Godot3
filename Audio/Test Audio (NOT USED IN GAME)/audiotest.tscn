@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Audio/Files/EnemyWalk.wav" type="AudioStream" id=1]
+[ext_resource path="res://Audio/Sound Objects/SoundQueue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Test Audio (NOT USED IN GAME)/audiotest.gd" type="Script" id=7]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="SoundQueue" parent="." instance=ExtResource( 2 )]
+count = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundQueue"]
+stream = ExtResource( 1 )
+volume_db = -15.0
+pitch_scale = 0.5
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_right = 176.0
+margin_bottom = 43.0
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

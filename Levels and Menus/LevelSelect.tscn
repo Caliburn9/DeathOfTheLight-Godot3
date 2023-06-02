@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://BlackTexture.png" type="Texture" id=1]
+[ext_resource path="res://Menu Art/LevelSelect.png" type="Texture" id=1]
 [ext_resource path="res://Levels and Menus/LevelSelect.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Adventurer.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://theme.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 3 )
 
 [node name="LevelSelect" type="Node2D"]
 script = ExtResource( 2 )
@@ -14,60 +31,103 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="LevelSelect"]
-modulate = Color( 1, 1, 1, 0.411765 )
-margin_right = 322.0
-margin_bottom = 184.0
+margin_right = 319.0
+margin_bottom = 179.0
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelSelect"]
+margin_left = 110.0
+margin_top = 54.0
+margin_right = 199.0
+margin_bottom = 72.0
+theme = ExtResource( 4 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "Level Select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect"]
-margin_left = 72.0
-margin_top = 74.0
-margin_right = 254.0
-margin_bottom = 114.0
+margin_left = 69.0
+margin_top = 77.0
+margin_right = 248.0
+margin_bottom = 117.0
+custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level1" type="Button" parent="LevelSelect/HBoxContainer"]
-margin_right = 58.0
+margin_right = 47.0
 margin_bottom = 40.0
-focus_neighbour_left = NodePath("../Button3")
+focus_neighbour_left = NodePath("../Level3")
+focus_neighbour_right = NodePath("../Level2")
+focus_neighbour_bottom = NodePath("../../Reset")
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "Level 1"
 
 [node name="Level2" type="Button" parent="LevelSelect/HBoxContainer"]
 margin_left = 62.0
-margin_right = 120.0
+margin_right = 113.0
 margin_bottom = 40.0
+focus_neighbour_left = NodePath("../Level1")
+focus_neighbour_right = NodePath("../Level3")
+focus_neighbour_bottom = NodePath("../../Reset")
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Level 2"
 
 [node name="Level3" type="Button" parent="LevelSelect/HBoxContainer"]
-margin_left = 124.0
-margin_right = 182.0
+margin_left = 128.0
+margin_right = 179.0
 margin_bottom = 40.0
-focus_neighbour_right = NodePath("../Button")
+focus_neighbour_left = NodePath("../Level2")
+focus_neighbour_right = NodePath("../Level1")
+focus_neighbour_bottom = NodePath("../../Reset")
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
 text = "Level 3"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="LevelSelect"]
-margin_left = 105.0
-margin_top = 49.0
-margin_right = 210.0
-margin_bottom = 67.0
-text = "	Level Select"
-
 [node name="Reset" type="Button" parent="LevelSelect"]
-margin_left = 133.0
-margin_top = 130.0
-margin_right = 193.0
-margin_bottom = 150.0
+margin_left = 98.0
+margin_top = 113.0
+margin_right = 147.0
+margin_bottom = 153.0
+focus_neighbour_left = NodePath("../HBoxContainer/Level1")
+focus_neighbour_top = NodePath("../HBoxContainer/Level1")
+focus_neighbour_right = NodePath("../Back")
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = " Reset "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Back" type="Button" parent="LevelSelect"]
+margin_left = 164.0
+margin_top = 114.0
+margin_right = 198.0
+margin_bottom = 154.0
+focus_neighbour_left = NodePath("../Reset")
+focus_neighbour_top = NodePath("../HBoxContainer/Level1")
+focus_neighbour_right = NodePath("../HBoxContainer/Level1")
+theme = ExtResource( 4 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="LevelSelect/HBoxContainer/Level1" to="." method="_on_Level1_focus_entered"]
 [connection signal="pressed" from="LevelSelect/HBoxContainer/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="focus_entered" from="LevelSelect/HBoxContainer/Level2" to="." method="_on_Level2_focus_entered"]
 [connection signal="pressed" from="LevelSelect/HBoxContainer/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="focus_entered" from="LevelSelect/HBoxContainer/Level3" to="." method="_on_Level3_focus_entered"]
 [connection signal="pressed" from="LevelSelect/HBoxContainer/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="focus_entered" from="LevelSelect/Reset" to="." method="_on_Reset_focus_entered"]
 [connection signal="pressed" from="LevelSelect/Reset" to="." method="_on_Reset_pressed"]
+[connection signal="focus_entered" from="LevelSelect/Back" to="." method="_on_Back_focus_entered"]
+[connection signal="pressed" from="LevelSelect/Back" to="." method="_on_Back_pressed"]

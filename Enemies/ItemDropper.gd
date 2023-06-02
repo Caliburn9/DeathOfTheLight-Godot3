@@ -46,7 +46,8 @@ func set_drop_chance():
 			weaponChest_drop_chance = 1
 		
 		"Null":
-			print("ItemDropper.gd: Enemy type not set!")
+			pass
+			#print("ItemDropper.gd: Enemy type not set!")
 
 #Drop item(s)
 func drop_item():
@@ -54,39 +55,39 @@ func drop_item():
 	randomizer.randomize()
 	
 	var item_drop_chance = randomizer.randi_range(1, 100)
-	print("Drop Item Function Called")
+	#print("Drop Item Function Called")
 	
 	if sword_drop_chance == 1:
 		if item_drop_chance > 50 and item_drop_chance <= 100:
 			var sword_instance = sword.instance()
 			get_parent().get_parent().call_deferred("add_child", sword_instance)
 			sword_instance.global_position = global_position
-			print("Dropped Sword")
+			#print("Dropped Sword")
 	
 	if axe_drop_chance == 1:
 		if item_drop_chance > 20 and item_drop_chance <= 50:
 			var axe_instance = axe.instance()
 			get_parent().get_parent().call_deferred("add_child", axe_instance)
 			axe_instance.global_position = global_position
-			print("Dropped Axe")
+			#print("Dropped Axe")
 	
 	if spear_drop_chance == 1:
 		if item_drop_chance > 15 and item_drop_chance <= 30:
 			var spear_instance = spear.instance()
 			get_parent().get_parent().call_deferred("add_child", spear_instance)
 			spear_instance.global_position = global_position
-			print("Dropped Spear")
+			#print("Dropped Spear")
 	
 	if enemyStasis_drop_chance == 1:
 		if item_drop_chance > 0 and item_drop_chance <= 15:
 			var enemyStasis_instance = enemyStasis.instance()
 			get_parent().get_parent().call_deferred("add_child", enemyStasis_instance)
 			enemyStasis_instance.global_position = global_position
-			print("Dropped Enemy Stasis")
+			#print("Dropped Enemy Stasis")
 	
 	if weaponChest_drop_chance == 1:
 		if item_drop_chance > 50 and item_drop_chance <= 100:
 			var weaponChest_instance = weaponChest.instance()
 			get_parent().get_parent().call_deferred("add_child", weaponChest_instance)
 			weaponChest_instance.global_position = global_position
-			print("Dropped Weapon Chest")
+			#print("Dropped Weapon Chest")

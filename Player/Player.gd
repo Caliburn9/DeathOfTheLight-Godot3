@@ -33,6 +33,14 @@ onready var stats = $Stats
 onready var lightGlow = $Light
 onready var math = $Math
 onready var pointer = $OrbPointer
+onready var sprite = $AnimatedSprite
+
+#audio objects
+onready var footstepSound = $FootstepSoundQueue
+onready var pickupSound = $PickupSoundQueue
+onready var dropSound = $DropSoundQueue
+onready var attackSound = $WeaponAttackSoundQueue
+onready var itemUsedSound = $ItemUsedSoundQueue
 
 func _ready():
 	attackTimer = Timer.new()
@@ -67,6 +75,9 @@ func pick_up_item():
 	
 	#fill "inventory"
 	holding_item = true
+	
+	#play sound
+	pickupSound.play_sound()
 
 func drop_item():
 	#delete item from player tree
@@ -82,6 +93,9 @@ func drop_item():
 	
 	#empty inventory
 	holding_item = false
+	
+	#play sound
+	dropSound.play_sound()
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -91,8 +105,18 @@ func move_state(delta):
 	
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		sprite.playing = true
+		footstepSound.play_sound()
+		
+		if input_vector.x == -1:
+			sprite.scale = Vector2(-1, 1)
+		elif input_vector.x == 1:
+			sprite.scale = Vector2(1, 1)
+		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		sprite.playing = false
+		sprite.frame = 0
 	
 	move()
 	
@@ -100,7 +124,7 @@ func move_state(delta):
 		if Input.is_action_just_pressed("interact"):
 			if holding_item == false:
 				pick_up_item()
-				print("Picking up")
+				#print("Picking up")
 				if item.get_item_type() == "Orb":
 					pointer.set_target(null)
 					pointer.visible = false
@@ -109,7 +133,7 @@ func move_state(delta):
 #					item.change_is_picked_up()
 			else:
 				drop_item()
-				print("Dropping")
+				#print("Dropping")
 				if item.get_item_type() == "Orb":
 					pointer.set_target(item)
 					pointer.visible = true
@@ -121,7 +145,7 @@ func move_state(delta):
 		if holding_item:
 			match item.get_item_type():
 				"Orb":
-					print("Holding Orb")
+					#print("Holding Orb")
 					#Place orb on pedestal if near it
 					if near_pedestal == true:
 					#Trigger win condition
@@ -129,11 +153,12 @@ func move_state(delta):
 				
 				"Weapon":
 					if can_attack:
-						print("Holding Weapon")
+						#print("Holding Weapon")
 						#Set state to attack
 						state = ATTACK
 						#Pass necessary attacking logic
 						attack_vector = input_vector
+						attackSound.play_sound()
 				
 				"EnemyStasis":
 					#Stop the enemy in place that is
@@ -141,12 +166,14 @@ func move_state(delta):
 					#"Drop" the held item
 					item.stop_enemies()
 					drop_item()
+					itemUsedSound.play_sound()
 				
 				"Chest":
 					#Drop a random weapon
 					#"Drop" the held item
 					item.drop_weapon()
 					drop_item()
+					itemUsedSound.play_sound()
 				
 #				"Attractor":
 #					#Attract orb
@@ -201,7 +228,7 @@ func is_near_pedestal(bool_val):
 	near_pedestal = bool_val
 
 func on_AttackTimer_timeout():
-	print("Attack timer ended")
+	#print("Attack timer ended")
 	
 	#reduce weapon durability
 	item.reduce_durability()
@@ -229,13 +256,14 @@ func _on_Hurtbox_area_entered(area):
 	#take damage something like below
 	if area.canDamage == true:
 		stats.health -= area.damage
-		print("Player took damage")
+		#print("Player took damage")
 		hurtbox.start_invul(.6)
+		hurtbox.create_hit_effect()
 	else:
 		#make the player drop the held item
 		if holding_item == true:
 			drop_item()
-			print("Dropping")
+			#print("Dropping")
 			if item.get_item_type() == "Orb":
 				emit_signal("orb_interaction")
 

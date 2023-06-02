@@ -22,14 +22,17 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalData="*res://Singletons/GlobalData.gd"
+SceneTransition="*res://UI/SceneTransition.tscn"
+SoundManager="*res://Audio/Sound Objects/SoundManager.tscn"
 
 [display]
 
 window/size/width=320
 window/size/height=180
-window/size/test_width=1280
-window/size/test_height=720
+window/size/test_width=960
+window/size/test_height=540
 window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 

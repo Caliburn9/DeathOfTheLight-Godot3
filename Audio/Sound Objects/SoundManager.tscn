@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Audio/Sound Objects/SoundManager.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Sound Objects/SoundQueue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Files/EnemyDeath.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Files/MenuSelect.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Files/MenuConfirmed.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Files/Pause.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Files/heartbeat_fast_0.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Files/WeaponBreak2.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Files/BGM.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Files/MainMenuBGM.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Files/GameOver.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/Files/GameWin.wav" type="AudioStream" id=12]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="EnemyDeathSoundQueue" parent="." instance=ExtResource( 2 )]
+count = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="EnemyDeathSoundQueue"]
+stream = ExtResource( 3 )
+volume_db = -15.0
+
+[node name="MenuSelectSoundQueue" parent="." instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuSelectSoundQueue"]
+stream = ExtResource( 4 )
+volume_db = -25.0
+
+[node name="MenuConfirmSoundQueue" parent="." instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuConfirmSoundQueue"]
+stream = ExtResource( 5 )
+volume_db = -25.0
+
+[node name="PauseSoundQueue" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PauseSoundQueue"]
+stream = ExtResource( 6 )
+volume_db = -25.0
+
+[node name="WeaponBreakSoundQueue" parent="." instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WeaponBreakSoundQueue"]
+stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="LowLightBGM" parent="." instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LowLightBGM"]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[node name="LevelBGM" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LevelBGM"]
+stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="MainMenuBGM" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MainMenuBGM"]
+stream = ExtResource( 10 )
+volume_db = -5.0
+
+[node name="GameWinSoundQueue" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameWinSoundQueue"]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="GameOverSoundQueue" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameOverSoundQueue"]
+stream = ExtResource( 11 )
+volume_db = -10.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/short wind sound.wav-1b9fa89d86027df9443ac965ea710882.sample"
+
+[deps]
+
+source_file="res://Audio/Files/wind/short wind sound.wav"
+dest_files=[ "res://.import/short wind sound.wav-1b9fa89d86027df9443ac965ea710882.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

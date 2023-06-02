@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Items/WeaponChestTest.png" type="Texture" id=1]
+[ext_resource path="res://Items/WeaponChest.png" type="Texture" id=1]
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Items/WeaponChest.gd" type="Script" id=3]
 
