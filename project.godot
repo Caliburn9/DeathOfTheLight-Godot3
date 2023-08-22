@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 GlobalData="*res://Singletons/GlobalData.gd"
 SceneTransition="*res://UI/SceneTransition.tscn"
 SoundManager="*res://Audio/Sound Objects/SoundManager.tscn"
+DialogueSignalBus="*res://Singletons/DialogueSignalBus.gd"
 
 [display]
 
@@ -94,6 +95,7 @@ pause={
 2d_physics/layer_6="Soul"
 2d_physics/layer_7="Enemy"
 2d_physics/layer_8="SoftCollision"
+2d_physics/layer_9="Dialogue"
 
 [rendering]
 

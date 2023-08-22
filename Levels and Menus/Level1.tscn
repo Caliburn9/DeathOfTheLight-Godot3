@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Items/WeaponChest.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameStateController.tscn" type="PackedScene" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/Enemy2.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Levels and Menus/Level.gd" type="Script" id=14]
+[ext_resource path="res://UI/DialogueArea.tscn" type="PackedScene" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 39, 27 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 14 )
@@ -40,6 +44,9 @@ position = Vector2( 1696, 800 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 279, 136 )
+
+[node name="DialogueLayer" parent="YSort/Player" index="0"]
+scene_text_file = "res://UI/Dialogue Text Files/test.json"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -114,6 +121,14 @@ position = Vector2( 602, 284 )
 [node name="WeaponChest2" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 960, 693 )
 
+[node name="DialogueArea" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 402, 189 )
+dialogue_key = "test"
+dialogue_display_chance = 0.5
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea" index="0"]
+shape = SubResource( 1 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="LightBar" parent="UI" instance=ExtResource( 10 )]
@@ -127,7 +142,7 @@ NEXT_LEVEL = "res://Levels and Menus/Level2.tscn"
 cur_level = "level1"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.0470588, 0.00392157, 0.0941176, 0.92549 )
+color = Color( 0.0470588, 0.00392157, 0.0941176, 0.956863 )
 [connection signal="dead" from="YSort/Player" to="GameStateController" method="_on_Player_dead"]
 [connection signal="orb_interaction" from="YSort/Player" to="UI/LightBar" method="_on_Player_orb_interaction"]
 [connection signal="win" from="YSort/Player" to="GameStateController" method="_on_Player_win"]
@@ -135,3 +150,7 @@ color = Color( 0.0470588, 0.00392157, 0.0941176, 0.92549 )
 [connection signal="no_light" from="UI/LightBar" to="GameStateController" method="_on_LightBar_no_light"]
 
 [editable path="Camera2D"]
+
+[editable path="YSort/Player"]
+
+[editable path="YSort/DialogueArea"]
