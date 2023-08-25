@@ -3,9 +3,11 @@ extends Node
 var filePath = "user://game_data.json"
 
 var default_data = {
+	"tutorial": false,
 	"level1" : false,
 	"level2" : false,
 	"level3" : false,
+	"current_level": "" 
 }
 
 var current_data = {}

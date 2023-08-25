@@ -39,9 +39,9 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 13.0
-margin_top = 74.0
+margin_top = 54.0
 margin_right = 110.0
-margin_bottom = 148.0
+margin_bottom = 130.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,18 +54,28 @@ theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
-[node name="Level Select" type="Button" parent="MainMenu/VBoxContainer"]
+[node name="Continue" type="Button" parent="MainMenu/VBoxContainer"]
 margin_top = 20.0
 margin_right = 97.0
 margin_bottom = 36.0
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../Level Select")
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+
+[node name="Level Select" type="Button" parent="MainMenu/VBoxContainer"]
+margin_top = 40.0
+margin_right = 97.0
+margin_bottom = 56.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "Level Select"
 
 [node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
-margin_top = 40.0
+margin_top = 60.0
 margin_right = 97.0
-margin_bottom = 56.0
+margin_bottom = 76.0
 focus_neighbour_bottom = NodePath("../Start")
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 3 )
@@ -73,9 +83,9 @@ text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
 margin_left = 13.0
-margin_top = 85.0
+margin_top = 65.0
 margin_right = 147.0
-margin_bottom = 105.0
+margin_bottom = 85.0
 theme = ExtResource( 4 )
 custom_fonts/normal_font = SubResource( 4 )
 text = "Death of the Light"
@@ -96,6 +106,8 @@ __meta__ = {
 }
 [connection signal="focus_entered" from="MainMenu/VBoxContainer/Start" to="." method="_on_Start_focus_entered"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="focus_entered" from="MainMenu/VBoxContainer/Continue" to="." method="_on_Continue_focus_entered"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="focus_entered" from="MainMenu/VBoxContainer/Level Select" to="." method="_on_Level_Select_focus_entered"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Level Select" to="." method="_on_Level_Select_pressed"]
 [connection signal="focus_entered" from="MainMenu/VBoxContainer/Quit" to="." method="_on_Quit_focus_entered"]
