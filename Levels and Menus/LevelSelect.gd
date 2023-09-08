@@ -3,7 +3,7 @@ extends Node2D
 onready var l1_button = $LevelSelect/HBoxContainer/Level1
 onready var l2_button = $LevelSelect/HBoxContainer/Level2
 onready var l3_button = $LevelSelect/HBoxContainer/Level3
-onready var reset_button = $LevelSelect/Reset
+onready var back_button = $LevelSelect/Back
 
 func _ready():
 	SoundManager.specify_level("MainMenu")
@@ -12,7 +12,7 @@ func _ready():
 	l2_button.disabled = true
 	l3_button.disabled = true
 	
-	reset_button.grab_focus()
+	back_button.grab_focus()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -24,10 +24,10 @@ func _physics_process(delta):
 			l1_button.disabled = false
 	
 		if (GlobalData.current_data["level2"] == true):
-			l1_button.disabled = false
+			l2_button.disabled = false
 	
 		if (GlobalData.current_data["level3"] == true):
-			l1_button.disabled = false
+			l3_button.disabled = false
 
 func _on_Level1_pressed():
 	SceneTransition.change_scene("res://Levels and Menus/Level1.tscn")
@@ -41,12 +41,6 @@ func _on_Level3_pressed():
 	SceneTransition.change_scene("res://Levels and Menus/Level3.tscn")
 	SoundManager.play_menu_confirm_sound()
 
-func _on_Reset_pressed():
-	GlobalData.reset_data()
-	GlobalData.sava_data(GlobalData.filePath)
-	SoundManager.play_menu_confirm_sound()
-	get_tree().reload_current_scene()
-
 func _on_Back_pressed():
 	SoundManager.play_menu_confirm_sound()
 	SceneTransition.change_scene("res://Levels and Menus/MainMenu.tscn")
@@ -58,9 +52,6 @@ func _on_Level2_focus_entered():
 	SoundManager.play_menu_select_sound()
 
 func _on_Level3_focus_entered():
-	SoundManager.play_menu_select_sound()
-
-func _on_Reset_focus_entered():
 	SoundManager.play_menu_select_sound()
 
 func _on_Back_focus_entered():

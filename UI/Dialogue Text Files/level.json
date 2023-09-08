@@ -1,0 +1,27 @@
+{
+	"a": [
+		"The Light must not die",
+		"Get to the pedestal"
+	],
+	
+	"b": [
+		"Have to hold on...",
+	],
+	
+	"c": [
+		"Don't leave me in the dark",
+		"Don't leave me in the cold"
+	],
+	
+	"weapon_break": [
+		"Broken. . ."
+	],
+	
+	"weapon": [
+		"A weapon"
+	],
+
+	"enemy_stasis": [
+		"Their fear will stop them"
+	]
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://World/Background3.png" type="Texture" id=1]
 [ext_resource path="res://World/WallTileMap.tscn" type="PackedScene" id=2]
@@ -15,6 +15,16 @@
 [ext_resource path="res://Items/BrokenSword.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Items/EnemyStasis.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels and Menus/Level.gd" type="Script" id=15]
+[ext_resource path="res://UI/DialogueArea.tscn" type="PackedScene" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 84, 57 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 90, 61 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 143, 27 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 15 )
@@ -42,6 +52,9 @@ position = Vector2( 1862, 888 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 159, 231 )
+
+[node name="DialogueLayer" parent="YSort/Player" index="0"]
+scene_text_file = "res://UI/Dialogue Text Files/level.json"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -178,6 +191,38 @@ position = Vector2( 1139, 274 )
 [node name="EnemyStasis2" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 1168, 280 )
 
+[node name="DialogueArea" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 552, 541 )
+dialogue_key = "a"
+dialogue_display_chance = 8.0
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="DialogueArea2" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 650, 248 )
+dialogue_key = "c"
+dialogue_display_chance = 6.0
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea2" index="0"]
+shape = SubResource( 2 )
+
+[node name="DialogueArea4" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1069, 653 )
+dialogue_key = "a"
+dialogue_display_chance = 6.0
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea4" index="0"]
+shape = SubResource( 2 )
+
+[node name="DialogueArea3" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 939, 415 )
+dialogue_key = "b"
+dialogue_display_chance = 10.0
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea3" index="0"]
+shape = SubResource( 3 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="LightBar" parent="UI" instance=ExtResource( 4 )]
@@ -199,3 +244,13 @@ color = Color( 0.0470588, 0.00392157, 0.0941176, 0.956863 )
 [connection signal="no_light" from="UI/LightBar" to="GameStateController" method="_on_LightBar_no_light"]
 
 [editable path="Camera2D"]
+
+[editable path="YSort/Player"]
+
+[editable path="YSort/DialogueArea"]
+
+[editable path="YSort/DialogueArea2"]
+
+[editable path="YSort/DialogueArea4"]
+
+[editable path="YSort/DialogueArea3"]

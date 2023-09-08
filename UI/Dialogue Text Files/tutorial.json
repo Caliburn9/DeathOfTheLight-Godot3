@@ -1,0 +1,24 @@
+{
+	"start": [
+		"Move - Arrow Keys",
+		"Pick Up / Drop item - 'Z'",
+		"Use item - 'X'",
+	],
+	
+	"approaching_pedestal": [
+		"The Light must not die. . .",
+		"Get to the Pedestal. . ."
+	],
+	
+	"at_pedestal": [
+		"Press 'X' (While Holding Orb)"
+	],
+	
+	"weapon_break": [
+		"Broken. . ."
+	],
+	
+	"weapon": [
+		"A weapon"
+	]
+}

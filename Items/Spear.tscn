@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@ extents = Vector2( 12, 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12, 2 )
 
 [node name="Spear" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
@@ -49,4 +52,14 @@ margin_top = 2.0
 margin_right = 2.0
 margin_bottom = 2.0
 
+[node name="DialogueArea" parent="." index="4"]
+dialogue_key = "weapon"
+dialogue_display_chance = 7.0
+
+[node name="CollisionShape2D" parent="DialogueArea" index="0"]
+position = Vector2( 9, 0 )
+shape = SubResource( 4 )
+
 [editable path="Hitbox"]
+
+[editable path="DialogueArea"]

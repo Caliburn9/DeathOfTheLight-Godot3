@@ -6,9 +6,9 @@ var scene_text = []
 var selected_text = []
 var in_progress = false
 var key = ""
-var initial_time = 1
-var regular_time = 4
-var typing_speed = 0.1
+var initial_time = 0.5
+var regular_time = 1.75
+var typing_speed = 0.05
 var current_char = 0
 var current_line = ""
 

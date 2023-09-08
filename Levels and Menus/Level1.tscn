@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Items/WeaponChest.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameStateController.tscn" type="PackedScene" id=2]
@@ -14,6 +14,13 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/Enemy2.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Levels and Menus/Level.gd" type="Script" id=14]
+[ext_resource path="res://UI/DialogueArea.tscn" type="PackedScene" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 101, 18 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 95, 79 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 14 )
@@ -40,6 +47,9 @@ position = Vector2( 1696, 800 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 279, 136 )
+
+[node name="DialogueLayer" parent="YSort/Player" index="0"]
+scene_text_file = "res://UI/Dialogue Text Files/level.json"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -114,6 +124,22 @@ position = Vector2( 602, 284 )
 [node name="WeaponChest2" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 960, 693 )
 
+[node name="DialogueArea" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 673, 404 )
+dialogue_key = "a"
+dialogue_display_chance = 7.0
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="DialogueArea2" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 1111, 630 )
+dialogue_key = "c"
+dialogue_display_chance = 5.0
+
+[node name="CollisionShape2D" parent="YSort/DialogueArea2" index="0"]
+shape = SubResource( 2 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="LightBar" parent="UI" instance=ExtResource( 10 )]
@@ -137,3 +163,7 @@ color = Color( 0.0470588, 0.00392157, 0.0941176, 0.956863 )
 [editable path="Camera2D"]
 
 [editable path="YSort/Player"]
+
+[editable path="YSort/DialogueArea"]
+
+[editable path="YSort/DialogueArea2"]

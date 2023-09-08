@@ -59,7 +59,7 @@ collision_mask = 17
 script = ExtResource( 2 )
 
 [node name="DialogueLayer" parent="." instance=ExtResource( 16 )]
-position = Vector2( 0, -26 )
+position = Vector2( 0, -34 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
 

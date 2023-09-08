@@ -32,7 +32,6 @@ __meta__ = {
 }
 
 [node name="LineTimer" type="Timer" parent="."]
-wait_time = 4.5
 one_shot = true
 
 [node name="TextTimer" type="Timer" parent="."]

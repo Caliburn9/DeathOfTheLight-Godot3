@@ -6,6 +6,7 @@ var durability = max_durability
 signal durability_changed(value)
 signal max_durability_changed(value)
 
+onready var weaponbreakDialogue = preload("res://Items/WeaponBreakDialogue.tscn")
 onready var hitbox = $Hitbox
 onready var hitboxColShape = $Hitbox/CollisionShape2D
 
@@ -23,6 +24,9 @@ func reduce_durability():
 
 func destroy_weapon():
 	if durability <= 0:
+		var weaponBreak = weaponbreakDialogue.instance()
+		get_parent().get_parent().call_deferred("add_child", weaponBreak)
+		weaponBreak.global_position = global_position
 		queue_free()
 		SoundManager.play_weapon_break_sound()
 

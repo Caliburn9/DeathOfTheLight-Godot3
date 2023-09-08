@@ -48,7 +48,7 @@ margin_right = 268.0
 margin_bottom = 108.0
 theme = ExtResource( 2 )
 custom_fonts/normal_font = SubResource( 1 )
-text = "(Deletes previous progress)"
+text = "(Erases previous progress)"
 __meta__ = {
 "_edit_use_anchors_": false
 }

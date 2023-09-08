@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/DialogueArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/WeaponBreakDialogue.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 445.876
+
+[node name="WeaponBreakDialogue" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="DialogueArea" parent="." instance=ExtResource( 1 )]
+dialogue_key = "weapon_break"
+dialogue_display_chance = 3.0
+
+[node name="CollisionShape2D" parent="DialogueArea" index="0"]
+shape = SubResource( 1 )
+
+[editable path="DialogueArea"]
