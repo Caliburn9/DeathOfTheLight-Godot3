@@ -1,8 +1,9 @@
 {
 	"start": [
 		"Move - Arrow Keys",
-		"Pick Up / Drop item - 'Z'",
-		"Use item - 'X'",
+		"Pick Up / Drop item - 'Z' Key",
+		"Use item - 'X' Key",
+		"Pause - Enter Key"
 	],
 	
 	"approaching_pedestal": [

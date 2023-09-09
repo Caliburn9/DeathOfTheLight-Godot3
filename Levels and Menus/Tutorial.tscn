@@ -990,7 +990,7 @@ dialogue_display_chance = 1.0
 shape = SubResource( 96 )
 
 [node name="DialogueArea2" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 411, 143 )
+position = Vector2( 379, 144 )
 dialogue_key = "approaching_pedestal"
 dialogue_display_chance = 1.0
 
