@@ -17,6 +17,8 @@ _global_script_class_icons={
 
 config/name="DeathOfTheLight"
 run/main_scene="res://Levels and Menus/MainMenu.tscn"
+boot_splash/image="res://Menu Art/SplashScreenFinal2.PNG"
+boot_splash/bg_color=Color( 0.133333, 0.0666667, 0.223529, 1 )
 config/icon="res://icon.png"
 
 [autoload]

@@ -3,6 +3,7 @@ extends Control
 onready var lightBarTexture = $TextureProgress
 onready var timer = $Timer
 onready var math = $Math
+onready var lowLightAnim = $LowLightAnim
 
 signal no_light
 signal light_value_changed(change_amt_percent)
@@ -14,12 +15,14 @@ export var max_light_level = 20
 export var light_value = 0
 
 var player_interacted_with_orb = false
+var anim_played = false
 
 func _ready():
 	lightBarTexture.max_value = max_light_level
 	light_value = lightBarTexture.max_value
 	lightBarTexture.value = light_value
 	timer.set_wait_time(light_timer)
+	anim_played = false
 
 func _physics_process(delta):
 	if light_value <= 0:
@@ -27,8 +30,12 @@ func _physics_process(delta):
 	
 	if light_value <= 8:
 		SoundManager.play_low_light_sound()
+		if anim_played == false:
+			lowLightAnim.play("shake")
+			anim_played = true
 	else:
 		SoundManager.stop_low_light_sound()
+		anim_played = false
 
 func _on_Timer_timeout():
 	var light_value_percentage = 0
