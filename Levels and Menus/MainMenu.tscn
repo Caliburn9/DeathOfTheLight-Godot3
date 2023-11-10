@@ -5,6 +5,9 @@
 [ext_resource path="res://Fonts/Adventurer.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://theme.tres" type="Theme" id=4]
 
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 3 )
 
@@ -12,9 +15,6 @@ font_data = ExtResource( 3 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
 
 [node name="MainMenu" type="Node2D"]
@@ -51,7 +51,7 @@ margin_right = 97.0
 margin_bottom = 16.0
 focus_neighbour_top = NodePath("../Quit")
 theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Start"
 
 [node name="Continue" type="Button" parent="MainMenu/VBoxContainer"]
@@ -61,7 +61,7 @@ margin_bottom = 36.0
 focus_neighbour_top = NodePath("../Start")
 focus_neighbour_bottom = NodePath("../Level Select")
 theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Continue"
 
 [node name="Level Select" type="Button" parent="MainMenu/VBoxContainer"]
@@ -69,7 +69,7 @@ margin_top = 40.0
 margin_right = 97.0
 margin_bottom = 56.0
 theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Level Select"
 
 [node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
@@ -78,7 +78,7 @@ margin_right = 97.0
 margin_bottom = 76.0
 focus_neighbour_bottom = NodePath("../Start")
 theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
@@ -87,7 +87,7 @@ margin_top = 65.0
 margin_right = 147.0
 margin_bottom = 85.0
 theme = ExtResource( 4 )
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Death of the Light"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,7 +99,7 @@ margin_top = 5.0
 margin_right = 354.0
 margin_bottom = 29.0
 theme = ExtResource( 4 )
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "v1.0"
 __meta__ = {
 "_edit_use_anchors_": false
